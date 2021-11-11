@@ -20,13 +20,20 @@ export const GameDetails = () => {
                 return(
                     <>
                         <div>"{review.content}"- {review.rater.user.first_name} {review.rater.user.last_name}</div>
+                        
                     </>
                 )
             })}
+            <h2>Ratings</h2>
+            <div>Average Ratings: {game.average_rating}</div>
             <button
             onClick={()=> {
                 history.push(`/games/${gameId}/reviewForm`)
             }}>Add review</button>
+            <button
+            onClick={()=> {
+                history.push(`/games/${gameId}/ratingsForm`)
+            }}>Add rating</button>
 
         </>
     )

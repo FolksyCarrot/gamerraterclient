@@ -47,3 +47,21 @@ export const createReview = (review) => {
     }, body: JSON.stringify(review)})
         .then(getReviews)
 }
+
+export const getRatings = () => {
+    return fetch("http://localhost:8000/ratings", {
+        headers:{
+            "Authorization": `Token ${localStorage.getItem("lu_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
+
+export const createRating = (rating) => {
+    return fetch("http://localhost:8000/ratings", { method:"POST", headers:{
+        "Authorization": `Token ${localStorage.getItem("lu_token")}`,
+        "Content-Type": "application/json"
+    }, body: JSON.stringify(rating)})
+        
+}
